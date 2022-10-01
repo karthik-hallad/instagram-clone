@@ -15,9 +15,10 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 
 //screens
 import LandingScreen from "./components/auth/Landing";
-import RegisterScreen from "./components/auth/register";
+import RegisterScreen from "./components/auth/Register";
 import LoginScreen from "./components/auth/Login";
 import MainScreen from "./components/Main";
+import AddScreen from "./components/main/Add";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAsDE6E6ZfUQjEbj3qaAMzwp725atgRWFQ",
@@ -83,7 +84,20 @@ export default class App extends Component {
 
     return (
       <Provider store={store}>
-        <MainScreen />;
+        <NavigationContainer>
+          <Stack.Navigator intialRouteName="Main">
+            <Stack.Screen
+              name="Main"
+              component={MainScreen}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Add"
+              component={AddScreen}
+              options={{headerShown: true}}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
       </Provider>
     );
   }
