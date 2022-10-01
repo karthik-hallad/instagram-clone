@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
-export default function App() {
+export default function App({navigation}) {
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
   const [camera, setCamera] = useState(null);
@@ -84,8 +84,13 @@ export default function App() {
         onPress={pickImage}
         title="Pick From Gallery"
       ></Button>
+      <Button
+        style={styles.button}
+        onPress={() => navigation.navigate("Save", {image})}
+        title="Save Picture"
+      ></Button>
       {/* //image if image exists (if we set the uri of image ) then run the image tab and display it*/}
-      {image && console.log(image)}
+      {/* {image && console.log(image)} */}
       {image && <Image source={{uri: image}} style={{flex: 1}} />}
     </View>
   );

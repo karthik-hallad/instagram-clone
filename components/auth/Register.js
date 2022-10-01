@@ -18,7 +18,6 @@ export class Register extends Component {
   }
 
   onSignup() {
-    console.log("ads");
     const {email, password, name} = this.state;
     firebase
       .auth()

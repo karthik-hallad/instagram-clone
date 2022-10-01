@@ -19,6 +19,7 @@ import RegisterScreen from "./components/auth/Register";
 import LoginScreen from "./components/auth/Login";
 import MainScreen from "./components/Main";
 import AddScreen from "./components/main/Add";
+import SaveScreen from "./components/main/Save";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAsDE6E6ZfUQjEbj3qaAMzwp725atgRWFQ",
@@ -95,6 +96,13 @@ export default class App extends Component {
               name="Add"
               component={AddScreen}
               options={{headerShown: true}}
+              navigation={this.props.navigation}
+            />
+            <Stack.Screen
+              name="Save"
+              component={SaveScreen}
+              options={{headerShown: true}}
+              navigation={this.props.navigation}
             />
           </Stack.Navigator>
         </NavigationContainer>
